@@ -51,6 +51,9 @@ const MOCK_RESPONSE: APIResponse = {
   }
 };
 
+
+const API_URL = import.meta.env.VITE_API_URL;
+
 function App() {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<APIResponse | null>(null);
@@ -58,7 +61,7 @@ function App() {
   const handleVerify = async (text: string) => {
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:8000/api/verify', {
+      const response = await fetch(`${API_URL}/api/verify`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text })
