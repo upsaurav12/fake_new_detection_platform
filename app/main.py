@@ -34,6 +34,7 @@ app.add_middleware(
 # ── Clients ───────────────────────────────────────────────────────────────────
 def get_groq_client() -> Groq:
     key = os.getenv("GROQ_API_KEY")
+    print("GROQ_API_KEY:", key)
     if not key:
         raise HTTPException(
             status_code=500,
